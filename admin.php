@@ -70,10 +70,10 @@ require_once("Models/Product.php");
                 <tbody>
                     <?php foreach(getAllProducts() as $prod) { ?>
                     <tr>
-                        <td><?php echo $prod->title?></td>
-                        <td><?php echo $prod->categoryName?></td>
-                        <td><?php echo $prod->price?></td>
-                        <td><?php echo $prod->stockLevel?></td>
+                        <td><?php echo $prod->title; ?></td>
+                        <td><?php echo $prod->categoryName; ?></td>
+                        <td><?php echo $prod->price; ?></td>
+                        <td><?php echo $prod->stockLevel; ?></td>
                         <td><a class="btn btn-primary">Edit</a></td>
                     </tr>
                 <?php } ?>
