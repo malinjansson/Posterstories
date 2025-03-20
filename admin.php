@@ -1,7 +1,5 @@
 <?php
 require_once("Models/Product.php");
-
-
 ?>
 
 <!DOCTYPE html>
@@ -70,20 +68,15 @@ require_once("Models/Product.php");
                 </thead>
 
                 <tbody>
+                    <?php foreach(getAllProducts() as $prod) { ?>
                     <tr>
-                        <td>Test</td>
-                        <td>Cars</td>
-                        <td>2</td>
-                        <td>1</td>
+                        <td><?php echo $prod->title?></td>
+                        <td><?php echo $prod->categoryName?></td>
+                        <td><?php echo $prod->price?></td>
+                        <td><?php echo $prod->stockLevel?></td>
                         <td><a class="btn btn-primary">Edit</a></td>
                     </tr>
-                    <tr>
-                        <td>Test2</td>
-                        <td>Cars</td>
-                        <td>22</td>
-                        <td>12</td>
-                        <td><a class="btn btn-primary">Edit</a></td>
-                    </tr>
+                <?php } ?>
                 </tbody>
             </table>
         </div>
