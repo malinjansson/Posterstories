@@ -17,7 +17,7 @@ class Product{
 
 };
 
-$allaProdukter = [
+$allProducts = [
 new Product(1,'Chai',18,39,'Beverages'),
 new Product(2,'Chang',19,17,'Beverages'),
 new Product(3,'Aniseed Syrup',10,13,'Condiments'),
@@ -101,17 +101,12 @@ new Product(77,'Original Frankfurter grüne Soße',13,32,'Condiments'),
 function getAllCategories(){
     $cats = array_map(function($product){return $product->categoryName;},getAllProducts());
     $cats = array_unique($cats);
-    // foreach(getAllProducts() as $product){
-    //     if(!in_array($product->categoryName,$cats)){
-    //         $cats[] = $product->categoryName;
-    //     }
-    // }
     return $cats;
 }
 
 
 function getAllProducts(){
-    global $allaProdukter;
-    return $allaProdukter;
+    global $allProducts;
+    return $allProducts;
 }
 ?>
