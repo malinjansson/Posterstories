@@ -103,9 +103,9 @@ function getProduct($id){
     foreach( $allProducts as $product ){
         if( $product->id == $id ){
             return $product;
-        }   
-    return null;
+        }  
     }
+    return null;
 }
 
 
