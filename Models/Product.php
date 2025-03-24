@@ -100,9 +100,12 @@ new Product(77,'Original Frankfurter grüne Soße',13,32,'Condiments'),
 function getProduct($id){
     global $allProducts;
 
-    return array_find($allProducts, function ($product) use ($id) {
-        return $product->id === $id;
-    });
+    foreach( $allProducts as $product ){
+        if( $product->id == $id ){
+            return $product;
+        }   
+    return null;
+    }
 }
 
 
