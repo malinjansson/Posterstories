@@ -97,9 +97,17 @@ new Product(76,'Lakkalikööri',9,57,'Beverages'),
 new Product(77,'Original Frankfurter grüne Soße',13,32,'Condiments'),
 ];
 
+function getProduct($id){
+    global $allProducts;
+
+    return array_find($allProducts, function ($product) use ($id) {
+        return $product->id === $id;
+    });
+}
+
 
 function getAllCategories(){
-    $cats = array_map(function($product){return $product->categoryName;},getAllProducts());
+    $cats = array_map(function($product):string {return $product->categoryName;},getAllProducts());
     $cats = array_unique($cats);
     return $cats;
 }
