@@ -1,5 +1,7 @@
 <?php
+require_once("Models/Database.php");
     function HeaderNav (){
+        $dbConnection = new Database();
     ?>
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -13,7 +15,7 @@
                                 <li><a class="dropdown-item" href="#!">All Products</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <?php
-                                foreach(getAllCategories() as $cat){
+                                foreach($dbConnection->getAllCategories() as $cat){
                                     echo "<li><a class='dropdown-item' href='#!'>$cat</a></li>";
                                 }
                                 ?>

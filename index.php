@@ -4,6 +4,10 @@ require_once("components/HeadLinks.php");
 require_once("components/HeaderNav.php");
 require_once("components/TopHeader.php");
 require_once("components/Footer.php");
+require_once("Models/Database.php");
+
+
+$dbConnection = new Database();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +30,7 @@ require_once("components/Footer.php");
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <?php
-                    foreach(getAllProducts() as $prod) {
+                    foreach($dbConnection->getAllProducts() as $prod) {
                     ?>
                         <div class="col mb-5">
                             <div class="card h-100">
