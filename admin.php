@@ -7,6 +7,9 @@ require_once("Models/Database.php");
 
 
 $dbConnection = new Database();
+
+$sortColumn = $_GET['sortColumn'] ?? "";
+$sortOrder = $_GET['sortOrder'] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -27,15 +30,42 @@ $dbConnection = new Database();
         <div class="container px-4 px-lg-5 mt-5">
             <table class="table">
                 <thead>
-                        <th>Name</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Stock level</th>
-                        <th>action</th>
+                        <th>Name
+                            <a href="admin.php?sortColumn=title&sortOrder=asc">
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </a>
+                            <a href="admin.php?sortColumn=title&sortOrder=desc">
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </a>
+                        </th>
+                        <th>Category
+                            <a href="admin.php?sortColumn=categoryName&sortOrder=asc">
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </a>
+                            <a href="admin.php?sortColumn=categoryName&sortOrder=desc">
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </a>
+                        </th>
+                        <th>Price
+                            <a href="admin.php?sortColumn=price&sortOrder=asc">
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </a>
+                            <a href="admin.php?sortColumn=price&sortOrder=desc">
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </a>
+                        </th>
+                        <th>Stock level
+                            <a href="admin.php?sortColumn=stockLevel&sortOrder=asc">
+                                <i class="bi bi-arrow-down-circle-fill"></i>
+                            </a>
+                            <a href="admin.php?sortColumn=stockLevel&sortOrder=desc">
+                                <i class="bi bi-arrow-up-circle-fill"></i>
+                            </a>
+                        </th>
+                        <th>Action</th>
                 </thead>
-
                 <tbody>
-                    <?php foreach($dbConnection->getAllProducts() as $prod) { ?>
+                    <?php foreach($dbConnection->getAllProducts($sortColumn, $sortOrder) as $prod) { ?>
                     <tr>
                         <td><?php echo $prod->title; ?></td>
                         <td><?php echo $prod->categoryName; ?></td>
