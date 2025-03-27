@@ -3,6 +3,10 @@ require_once("Models/Product.php");
 require_once("components/HeadLinks.php");
 require_once("components/HeaderNav.php");
 require_once("components/Footer.php");
+require_once("Models/Database.php");
+
+
+$dbConnection = new Database();
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +35,7 @@ require_once("components/Footer.php");
                 </thead>
 
                 <tbody>
-                    <?php foreach(getAllProducts() as $prod) { ?>
+                    <?php foreach($dbConnection->getAllProducts() as $prod) { ?>
                     <tr>
                         <td><?php echo $prod->title; ?></td>
                         <td><?php echo $prod->categoryName; ?></td>
