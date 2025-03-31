@@ -1,14 +1,19 @@
 <?php 
+    require_once("vendor/autoload.php");
+
+    $dotenv = Dotenv\Dotenv::createImmutable(".");
+    $dotenv->load();
     class Database {
         public $pdo;
         function __construct(){
-            $host = "localhost";
-            $db = "theshop";
-            $user = "root";
-            $pass = "root";
+            $host = $_ENV["HOST"];
+            $db = $_ENV["DB"];
+            $user = $_ENV["USER"];
+            $password = $_ENV["PASSWORD"];
+            $port = $_ENV["PORT"];
 
-            $dsn = "mysql:host=$host:8889;dbname=$db";
-            $this->pdo = new PDO($dsn, $user, $pass);
+            $dsn = "mysql:host=$host:$port;dbname=$db";
+            $this->pdo = new PDO($dsn, $user, $password);
             $this->initDatabase();
             $this->initData();
         }
