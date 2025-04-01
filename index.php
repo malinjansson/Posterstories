@@ -10,7 +10,7 @@ $router->addRoute('/', function () {
     require __DIR__ .'/pages/home.php';
 });
 $router->addRoute('/category', function () {
-    require_once( __DIR__ .'/Pages/category.php');
+    require_once( __DIR__ .'/pages/category.php');
 });
 $router->addRoute('/admin', function () {
     require __DIR__ .'/pages/admin.php';
