@@ -5,17 +5,16 @@ require_once("components/HeaderNav.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
 
-    $id = $_GET['id'];
     $dbConnection = new Database();
-    $product = $dbConnection->getProduct($id);
 
     if($_SERVER ['REQUEST_METHOD'] == 'POST') {
-        $product->title = $_POST['title'];
-        $product->price = $_POST['price'];
-        $product->stockLevel = $_POST['stockLevel'];
-        $product->categoryName = $_POST['categoryName'];
-        $dbConnection->updateProduct($product);
-        echo "<h1>The product has been updated</h1>";
+        $title = $_POST['title'];
+        $price = $_POST['price'];
+        $stockLevel = $_POST['stockLevel'];
+        $categoryName = $_POST['categoryName'];
+        $dbConnection->insertProduct($title, $price, $stockLevel, $categoryName);
+        header("Location: /admin");
+        exit;
     } else{
 
     }
@@ -35,24 +34,25 @@ require_once("Models/Database.php");
      <!-- Section-->
      <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
+            <h2>Create new product</h2>
             <form method="POST">
                 <div class="form-group">
                     <lable for="title">Title</lable>
-                    <input type="text" class="form-control" name="title" value="<?php echo $product->title?>">
+                    <input type="text" class="form-control" name="title" value="">
                 </div>
                 <div class="form-group">
                     <lable for="title">Price</lable>
-                    <input type="text" class="form-control" name="price" value="<?php echo $product->price?>">
+                    <input type="text" class="form-control" name="price" value="">
                 </div>
                 <div class="form-group">
                     <lable for="title">Stock</lable>
-                    <input type="text" class="form-control" name="stockLevel" value="<?php echo $product->stockLevel?>">
+                    <input type="text" class="form-control" name="stockLevel" value="">
                 </div>
                 <div class="form-group">
                     <lable for="title">Category name</lable>
-                    <input type="text" class="form-control" name="categoryName" value="<?php echo $product->categoryName?>">
+                    <input type="text" class="form-control" name="categoryName" value="">
                 </div>
-                <input type="submit" value="Update">
+                <input type="submit" value="Create">
             </form>
         </div>
     </section>

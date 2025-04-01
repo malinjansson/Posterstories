@@ -28,29 +28,30 @@ $sortOrder = $_GET['sortOrder'] ?? "";
         <!-- Section-->
         <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
+            <a href="/admin/new" class="btn btn-primary">Create new</a>
             <table class="table">
                 <thead>
                         <th>Name
-                            <a href="admin.php?sortColumn=title&sortOrder=asc">
+                            <a href="admin?sortColumn=title&sortOrder=asc">
                                 <i class="bi bi-arrow-down-circle-fill"></i>
                             </a>
-                            <a href="admin.php?sortColumn=title&sortOrder=desc">
+                            <a href="admin?sortColumn=title&sortOrder=desc">
                                 <i class="bi bi-arrow-up-circle-fill"></i>
                             </a>
                         </th>
                         <th>Category
-                            <a href="admin.php?sortColumn=categoryName&sortOrder=asc">
+                            <a href="admin?sortColumn=categoryName&sortOrder=asc">
                                 <i class="bi bi-arrow-down-circle-fill"></i>
                             </a>
-                            <a href="admin.php?sortColumn=categoryName&sortOrder=desc">
+                            <a href="admin?sortColumn=categoryName&sortOrder=desc">
                                 <i class="bi bi-arrow-up-circle-fill"></i>
                             </a>
                         </th>
                         <th>Price
-                            <a href="admin.php?sortColumn=price&sortOrder=asc">
+                            <a href="admin?sortColumn=price&sortOrder=asc">
                                 <i class="bi bi-arrow-down-circle-fill"></i>
                             </a>
-                            <a href="admin.php?sortColumn=price&sortOrder=desc">
+                            <a href="admin?sortColumn=price&sortOrder=desc">
                                 <i class="bi bi-arrow-up-circle-fill"></i>
                             </a>
                         </th>

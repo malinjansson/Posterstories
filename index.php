@@ -18,6 +18,9 @@ $router->addRoute('/admin', function () {
 $router->addRoute('/admin/edit', function () {
     require __DIR__ .'/pages/edit.php';
 });
+$router->addRoute('/admin/new', function () {
+    require __DIR__ .'/pages/new.php';
+});
 
 $router->dispatch();
 ?>
