@@ -12,7 +12,7 @@ $router->addRoute('/', function () {
 $router->addRoute('/admin', function () {
     require __DIR__ .'/pages/admin.php';
 });
-$router->addRoute('/edit', function () {
+$router->addRoute('/admin/edit', function () {
     require __DIR__ .'/pages/edit.php';
 });
 
