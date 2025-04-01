@@ -9,6 +9,9 @@ $router = new Router();
 $router->addRoute('/', function () {
     require __DIR__ .'/pages/home.php';
 });
+$router->addRoute('/category', function () {
+    require_once( __DIR__ .'/Pages/category.php');
+});
 $router->addRoute('/admin', function () {
     require __DIR__ .'/pages/admin.php';
 });
