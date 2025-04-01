@@ -1,8 +1,4 @@
 <?php 
-    require_once("vendor/autoload.php");
-
-    $dotenv = Dotenv\Dotenv::createImmutable(".");
-    $dotenv->load();
     class Database {
         public $pdo;
         function __construct(){
