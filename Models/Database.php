@@ -53,6 +53,10 @@
                 'id' => $product->id
                 ]);
         }
+        function deleteProduct($id){
+            $query = $this->pdo->prepare("DELETE FROM Products WHERE id = :id");
+            $query->execute(['id' => $id]);
+        }
 
         function insertProduct($title, $price, $stockLevel, $categoryName){
             $sql = "INSERT INTO Products (title, price, stockLevel, categoryName) VALUES (:title, :price, :stockLevel, :categoryName)";
@@ -66,7 +70,7 @@
 
         }
         function getAllProducts ($sortColumn="id", $sortOrder="asc"){
-            if(!in_array($sortColumn,["id", "title", "price", "stockLevel"])){
+            if(!in_array($sortColumn,["id", "title", "price", "stockLevel", "categoryName"])){
                 $sortColumn = "id";
             } 
             if(!in_array($sortOrder,["asc", "desc"])){
