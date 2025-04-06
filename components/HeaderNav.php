@@ -12,7 +12,7 @@ require_once("Models/Database.php");
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kategorier</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><a class="dropdown-item" href="/category">All Products</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <?php
                                 foreach($dbConnection->getAllCategories() as $cat){

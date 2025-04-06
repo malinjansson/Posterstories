@@ -8,7 +8,6 @@
  $id = $_GET['id'];
  $confirmed = $_GET['confirmed'] ?? false;
  $dbConnection = new Database();
- // Hämta den produkt med detta ID
  $product = $dbConnection->getProduct($id);
  
  if($confirmed == true){
