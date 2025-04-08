@@ -1,6 +1,12 @@
 <?php 
+require_once('Models/UserDatabase.php');
     class Database {
         public $pdo;
+
+        private $usersDatabase;
+        function getUsersDatabase(){
+            return $this->usersDatabase;
+        }     
         function __construct(){
             $host = $_ENV["HOST"];
             $db = $_ENV["DB"];
@@ -12,6 +18,9 @@
             $this->pdo = new PDO($dsn, $user, $password);
             $this->initDatabase();
             $this->initData();
+            $this->usersDatabase = new UserDatabase($this->pdo);
+            $this->usersDatabase->setupUsers();
+            $this->usersDatabase->seedUsers();
         }
         function initDatabase(){
             $this->pdo->query('CREATE TABLE IF NOT EXISTS Products (

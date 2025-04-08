@@ -22,9 +22,19 @@ require_once("Models/Database.php");
                                     <li><a class="dropdown-item" href="#!">En cat</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Create account</a></li>
+                        <?php
+                         if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
+                             <li class="nav-item"><a class="nav-link" href="/user/logout">Logout</a></li>
+                         <?php }else{ ?>
+                             <li class="nav-item"><a class="nav-link" href="/user/login">Login</a></li>
+                             <li class="nav-item"><a class="nav-link" href="/user/register">Create account</a></li>
+                         <?php 
+                         }
+                         ?>
                     </ul>
+                    <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
+                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getUsername() ?>
+                     <?php } ?>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>

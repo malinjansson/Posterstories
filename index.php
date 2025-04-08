@@ -24,6 +24,17 @@ $router->addRoute('/admin/new', function () {
 $router->addRoute('/admin/delete', function () {
     require_once( __DIR__ .'/pages/delete.php');
 });
-
+$router->addRoute('/user/login', function () {
+    require_once( __DIR__ .'/pages/users/login.php');
+});
+$router->addRoute('/user/logout', function () {
+    require_once( __DIR__ .'/pages/users/logout.php');
+});
+$router->addRoute('/user/register', function () {
+    require_once( __DIR__ .'/pages/users/register.php');
+});
+$router->addRoute('/user/registerthanks', function () {
+    require_once( __DIR__ .'/pages/users/registerThanks.php');
+});
 $router->dispatch();
 ?>
