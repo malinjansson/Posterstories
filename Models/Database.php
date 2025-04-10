@@ -31,18 +31,41 @@ require_once('Models/UserDatabase.php');
                 categoryName VARCHAR(50)
             )');
         }
-        function initData(){
-            $sql = "SELECT COUNT(*) FROM Products";
-            $res = $this->pdo->query($sql);
-            $count = $res->fetchColumn();
-            if($count == 0){
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Banana', 10, 100, 'Fruit')");
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Apple', 5, 50, 'Fruit')");
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Pear', 7, 70, 'Fruit')");
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Cucumber', 15, 30, 'Vegetable')");
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Tomato', 20, 40, 'Vegetable')");
-                $this->pdo->query("INSERT INTO Products (title, price, stockLevel, categoryName) VALUES ('Carrot', 10, 20, 'Vegetable')");
-            }
+
+        function insertProduct($title, $price, $stockLevel, $categoryName){
+            $sql = "INSERT INTO Products (title, price, stockLevel, categoryName) VALUES (:title, :price, :stockLevel, :categoryName)";
+            $query = $this->pdo->prepare($sql);;
+            $query->execute([
+                'title' => $title, 
+                'price' => $price,
+                'stockLevel' => $stockLevel,
+                'categoryName' => $categoryName, 
+                ]);
+
+        }
+
+        function addProductIfNotExists($title, $price, $stockLevel, $categoryName){
+             $query = $this->pdo->prepare("SELECT * FROM Products WHERE title = :title");
+             $query->execute(['title' => $title]);
+             if($query->rowCount() == 0){
+                 $this->insertProduct($title, $stockLevel, $price, $categoryName);
+             }
+         }
+         function initData(){
+            $this->addProductIfNotExists("Banana", 10, 100, "Fruit");
+            $this->addProductIfNotExists("Apple", 5, 50, "Fruit");
+            $this->addProductIfNotExists("Pear", 7, 70, "Fruit");
+            $this->addProductIfNotExists("Cucumber", 15, 30, "Vegetable");
+            $this->addProductIfNotExists("Tomato", 20, 40, "Vegetable");
+            $this->addProductIfNotExists("Carrot", 10, 20, "Vegetable");
+            $this->addProductIfNotExists("Potato", 5, 50, "Vegetable");
+            $this->addProductIfNotExists("Onion", 7, 70, "Vegetable");
+            $this->addProductIfNotExists("Lettuce", 15, 30, "Vegetable");
+            $this->addProductIfNotExists("Broccoli", 20, 40, "Vegetable");
+            $this->addProductIfNotExists("Spinach", 10, 20, "Vegetable");
+            $this->addProductIfNotExists("Zucchini", 5, 50, "Vegetable");
+            $this->addProductIfNotExists("Eggplant", 7, 70, "Vegetable");
+            $this->addProductIfNotExists("Bell Pepper", 15, 30, "Vegetable");
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
@@ -67,17 +90,6 @@ require_once('Models/UserDatabase.php');
             $query->execute(['id' => $id]);
         }
 
-        function insertProduct($title, $price, $stockLevel, $categoryName){
-            $sql = "INSERT INTO Products (title, price, stockLevel, categoryName) VALUES (:title, :price, :stockLevel, :categoryName)";
-            $query = $this->pdo->prepare($sql);;
-            $query->execute([
-                'title' => $title, 
-                'price' => $price,
-                'stockLevel' => $stockLevel,
-                'categoryName' => $categoryName, 
-                ]);
-
-        }
         function getAllProducts ($sortColumn="id", $sortOrder="asc"){
             if(!in_array($sortColumn,["id", "title", "price", "stockLevel", "categoryName"])){
                 $sortColumn = "id";
