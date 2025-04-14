@@ -1,5 +1,5 @@
 <?php
-    function TopHeader (){
+    function TopBanner (){
     ?>
        <div class="card text-bg-dark">
        <img src="assets/topbanner.jpg" class="topbanner-img" style="height: 90vh; object-fit: cover; object-position: top;" alt="Pink and white flower bouquets">

@@ -2,7 +2,7 @@
 require_once("Models/Product.php");
 require_once("components/HeadLinks.php");
 require_once("components/HeaderNav.php");
-require_once("components/TopHeader.php");
+require_once("components/TopBanner.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
 
@@ -24,7 +24,7 @@ $dbConnection = new Database();
         <!-- Navigation-->
         <?php HeaderNav()?>
         <!-- Header-->
-        <?php TopHeader()?>
+        <?php TopBanner()?>
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
