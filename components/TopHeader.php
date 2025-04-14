@@ -1,14 +1,13 @@
 <?php
     function TopHeader (){
     ?>
-        <header class="bg-dark py-5">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Super shoppen</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Handla massa onödigt hos oss!</p>
-                </div>
+       <div class="card text-bg-dark">
+       <img src="assets/topbanner.jpg" class="topbanner-img" style="height: 90vh; object-fit: cover; object-position: top;" alt="Pink and white flower bouquets">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center text-center">
+                <h2 class="topbanner-title">Send a flourishing greeting</h2>
+                <a>Send flowers</a>
             </div>
-        </header>
+        </div>
     <?php
     }
 ?>
