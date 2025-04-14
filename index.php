@@ -36,5 +36,8 @@ $router->addRoute('/user/register', function () {
 $router->addRoute('/user/registerthanks', function () {
     require_once( __DIR__ .'/pages/users/registerThanks.php');
 });
+$router->addRoute('/search', function () {
+    require_once( __DIR__ .'/pages/search.php');
+});
 $router->dispatch();
 ?>

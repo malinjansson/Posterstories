@@ -32,6 +32,10 @@ require_once("Models/Database.php");
                          }
                          ?>
                     </ul>
+                    <form action="/search" method="GET">
+                         <input type="text" name="q" placeholder="Search" class="form-control">
+                         <button class="btn btn-outline-dark" type="submit">Search</button>
+                      </form>   
                     <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
                          Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getUsername() ?>
                      <?php } ?>
