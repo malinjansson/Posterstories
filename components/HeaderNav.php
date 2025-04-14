@@ -39,9 +39,9 @@ require_once("Models/Database.php");
                          Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getUsername() ?>
                      <?php } ?>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
+                        <button class="position-relative btn btn-outline-dark" type="submit">
                             <i class="bi-bag-fill me-1"></i>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
                         </button>
                     </form>
                 </div>
