@@ -19,7 +19,6 @@ require_once("Models/Database.php");
                                     echo "<li><a class='dropdown-item' href='/category?catname=$cat'>$cat</a></li>";
                                 }
                                 ?>
-                                    <li><a class="dropdown-item" href="#!">En cat</a></li>
                             </ul> 
                         </li>
                         <?php
