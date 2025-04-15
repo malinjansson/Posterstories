@@ -16,7 +16,7 @@ require_once("Models/Database.php");
                                 <li><hr class="dropdown-divider" /></li>
                                 <?php
                                 foreach($dbConnection->getAllCategories() as $cat){
-                                    echo "<li><a class='dropdown-item' href='/category?categoryname=$cat'>$cat</a></li>";
+                                    echo "<li><a class='dropdown-item' href='/category?catname=$cat'>$cat</a></li>";
                                 }
                                 ?>
                                     <li><a class="dropdown-item" href="#!">En cat</a></li>
