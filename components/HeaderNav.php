@@ -5,8 +5,8 @@ require_once("Models/Database.php");
     ?>
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="navbar-brand" href="/">Ivy Bloom's & Co.</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item dropdown">
@@ -38,13 +38,13 @@ require_once("Models/Database.php");
                     <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
                          Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getUsername() ?>
                      <?php } ?>
-                    <form class="d-flex">
-                        <button class="position-relative btn btn-outline-dark" type="submit">
-                            <i class="bi-bag-fill me-1"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
-                        </button>
-                    </form>
                 </div>
+                <form class="d-flex">
+                    <button class="position-relative btn btn-outline-dark" type="submit">
+                        <i class="bi-bag-fill me-1"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+                    </button>
+                </form>
             </div>
         </nav>
     <?php
