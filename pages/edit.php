@@ -11,9 +11,12 @@ require_once("Models/Database.php");
 
     if($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $product->title = $_POST['title'];
+        $product->teaser = $_POST['teaser'];
         $product->price = $_POST['price'];
+        $product->img = $_POST ['img'];
         $product->stockLevel = $_POST['stockLevel'];
         $product->categoryName = $_POST['categoryName'];
+        $product->popularity = $_POST['popularity'];
         $dbConnection->updateProduct($product);
         echo "<h1>The product has been updated</h1>";
     } else{

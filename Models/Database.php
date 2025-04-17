@@ -22,50 +22,44 @@ require_once('Models/UserDatabase.php');
             $this->usersDatabase->setupUsers();
             $this->usersDatabase->seedUsers();
         }
+
         function initDatabase(){
             $this->pdo->query('CREATE TABLE IF NOT EXISTS Products (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(50),
+                teaser VARCHAR (50),
                 price INT, 
+                img VARCHAR (100),
                 stockLevel INT, 
-                categoryName VARCHAR(50)
+                categoryName VARCHAR(50),
+                popularity INT DEFAULT 0
             )');
         }
-
-        function insertProduct($title, $price, $stockLevel, $categoryName){
-            $sql = "INSERT INTO Products (title, price, stockLevel, categoryName) VALUES (:title, :price, :stockLevel, :categoryName)";
+       
+        function insertProduct($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity){
+            $sql = "INSERT INTO Products (title, teaser, price, img, stockLevel, categoryName, popularity) VALUES (:title, :teaser, :price, :img, :stockLevel, :categoryName, :popularity)";
             $query = $this->pdo->prepare($sql);;
             $query->execute([
                 'title' => $title, 
+                'teaser' => $teaser,
                 'price' => $price,
+                'img' => $img,
                 'stockLevel' => $stockLevel,
                 'categoryName' => $categoryName, 
+                'popularity' => $popularity
                 ]);
 
         }
 
-        function addProductIfNotExists($title, $price, $stockLevel, $categoryName){
+        function addProductIfNotExists($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity){
              $query = $this->pdo->prepare("SELECT * FROM Products WHERE title = :title");
              $query->execute(['title' => $title]);
              if($query->rowCount() == 0){
-                 $this->insertProduct($title, $stockLevel, $price, $categoryName);
+                 $this->insertProduct($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity);
              }
          }
          function initData(){
-            $this->addProductIfNotExists("Banana", 10, 100, "Fruit");
-            $this->addProductIfNotExists("Apple", 5, 50, "Fruit");
-            $this->addProductIfNotExists("Pear", 7, 70, "Fruit");
-            $this->addProductIfNotExists("Cucumber", 15, 30, "Vegetable");
-            $this->addProductIfNotExists("Tomato", 20, 40, "Vegetable");
-            $this->addProductIfNotExists("Carrot", 10, 20, "Vegetable");
-            $this->addProductIfNotExists("Potato", 5, 50, "Vegetable");
-            $this->addProductIfNotExists("Onion", 7, 70, "Vegetable");
-            $this->addProductIfNotExists("Lettuce", 15, 30, "Vegetable");
-            $this->addProductIfNotExists("Broccoli", 20, 40, "Vegetable");
-            $this->addProductIfNotExists("Spinach", 10, 20, "Vegetable");
-            $this->addProductIfNotExists("Zucchini", 5, 50, "Vegetable");
-            $this->addProductIfNotExists("Eggplant", 7, 70, "Vegetable");
-            $this->addProductIfNotExists("Bell Pepper", 15, 30, "Vegetable");
+            $this->addProductIfNotExists("Happy Birthday", "Bouquet of congratulations", 39, "assets/HappyBirthday.jpg",100, "Love Bouquets",100);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
@@ -75,13 +69,16 @@ require_once('Models/UserDatabase.php');
         }
         
         function updateProduct($product){
-            $p = "UPDATE Products SET title = :title, price = :price, stockLevel = :stockLevel, categoryName = :categoryName WHERE id = :id";
+            $p = "UPDATE Products SET title = :title, teaser = :teaser, price = :price, img = :img, stockLevel = :stockLevel, categoryName = :categoryName, popularity = :popularity WHERE id = :id";
             $query = $this->pdo->prepare($p);
             $query->execute([
                 'title' => $product->title, 
+                'teaser' => $product->teaser,
                 'price' => $product->price,
+                'img' => $product->img,
                 'stockLevel' => $product->stockLevel,
                 'categoryName' => $product->categoryName, 
+                'popularity' => $product->popularity,
                 'id' => $product->id
                 ]);
         }
