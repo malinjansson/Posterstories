@@ -59,9 +59,12 @@ require_once('Models/UserDatabase.php');
              }
          }
          function initData(){
-            $this->addProductIfNotExists("Lago Limides", "Mountain and lake in daylight - calm landscape with natural colors", 299, "assets/lago_limides.jpg", 100, "landscape", 10);
-            $this->addProductIfNotExists("Nature's Serenity", "Two brown deer peacefully grazing among trees. A perfect addition to bring a calming, nature-inspired atmosphere to your home or office.", 299, "assets/deers.jpg", 105, "landscape", 30);
-            $this->addProductIfNotExists("Furry Friends ", "An illustration of squirrels in a tree. Bring a touch of woodland charm to your child's room with this adorable poster!", 119, "assets/furry_friends.jpg", 90, "animals", 42);
+            $this->addProductIfNotExists("Lago Limides", "Mountain and lake in daylight - calm landscape with natural colors", 299, "assets/lago_limides.jpg", 100, "landscape", 1);
+            $this->addProductIfNotExists("Nature's Serenity", "Two brown deer peacefully grazing among trees. A perfect addition to bring a calming, nature-inspired atmosphere to your home or office.", 299, "assets/deers.jpg", 105, "landscape", 5);
+            $this->addProductIfNotExists("Furry Friends ", "An illustration of squirrels in a tree. Bring a touch of woodland charm to your child's room with this adorable poster!", 119, "assets/furry_friends.jpg", 90, "animals", 8);
+            $this->addProductIfNotExists("Hey Kitty Cat ", "Illustration of a brown and white cat sitting calmly on the ground, with a relaxed and peaceful expression, surrounded by soft lines and neutral tones.", 119, "assets/hey_kitty_cat.jpg", 80, "animals", 15);
+            $this->addProductIfNotExists("Air ballons", "Air balloons in the sky. Imagine the dreamlike view from a hot air balloon", 179, "assets/airballons.jpg", 80, "landscape", 6);
+            $this->addProductIfNotExists("Owl and Oak", "Illustration of an owl perched on a tree branch surrounded by smaller birds,", 199, "assets/owl_and_oak.jpg", 80, "animals", 2);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
