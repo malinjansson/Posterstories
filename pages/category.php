@@ -2,7 +2,7 @@
 require_once("Models/Product.php");
 require_once("components/HeadLinks.php");
 require_once("components/HeaderNav.php");
-require_once("components/ProductCards.php");
+require_once("components/CategoryProductCards.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
 
@@ -29,7 +29,7 @@ $header = $catName;
         <!-- Navigation-->
         <?php HeaderNav()?>
         <!-- Section-->
-        <?php ProductCards()?>
+        <?php CategoryProductCards($catName)?>
         <!-- Footer-->
         <?php Footer()?>
         <!-- Bootstrap core JS-->
