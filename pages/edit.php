@@ -16,7 +16,7 @@ require_once("Models/Database.php");
         $product->img = $_POST ['img'];
         $product->stockLevel = $_POST['stockLevel'];
         $product->categoryName = $_POST['categoryName'];
-        $product->popularity = $_POST['popularity'];
+        $product->popularity= $_POST['popularity'];
         $dbConnection->updateProduct($product);
         echo "<h1>The product has been updated</h1>";
     } else{
@@ -44,6 +44,14 @@ require_once("Models/Database.php");
                     <input type="text" class="form-control" name="title" value="<?php echo $product->title?>">
                 </div>
                 <div class="form-group">
+                    <lable for="title">Teaser</lable>
+                    <input type="text" class="form-control" name="teaser" value="<?php echo $product->teaser?>">
+                </div>
+                <div class="form-group">
+                    <lable for="title">Img</lable>
+                    <input type="text" class="form-control" name="img" value="<?php echo $product->img?>">
+                </div>
+                <div class="form-group">
                     <lable for="title">Price</lable>
                     <input type="text" class="form-control" name="price" value="<?php echo $product->price?>">
                 </div>
@@ -54,6 +62,10 @@ require_once("Models/Database.php");
                 <div class="form-group">
                     <lable for="title">Category name</lable>
                     <input type="text" class="form-control" name="categoryName" value="<?php echo $product->categoryName?>">
+                </div>
+                <div class="form-group">
+                    <lable for="title">Popularity</lable>
+                    <input type="text" class="form-control" name="popularity" value="<?php echo $product->popularity?>">
                 </div>
                 <input type="submit" value="Update">
             </form>

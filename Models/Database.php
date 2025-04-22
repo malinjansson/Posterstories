@@ -60,6 +60,7 @@ require_once('Models/UserDatabase.php');
          }
          function initData(){
             $this->addProductIfNotExists("Lago Limides", "Mountain and lake in daylight - calm landscape with natural colors", 299, "assets/lago_limides.jpg", 100, "landscape", 10);
+            $this->addProductIfNotExists("Nature’s Serenity", "Two brown deer peacefully grazing among trees. A perfect addition to bring a calming, nature-inspired atmosphere to your home or office.", 299, "assets/deers.jpg", 100, "landscape", 30);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
