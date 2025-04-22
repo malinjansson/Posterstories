@@ -22,12 +22,10 @@ require_once("Models/Database.php");
                                     <div class="text-center">
                                         <!-- Product name-->
                                         <h5 class="fw-bolder"><?php echo $prod->title;?></h5>
-                                        <!-- Product teaser-->
-                                        <p class="fst-italic"><?php echo $prod->teaser;?></>
                                     </div>
                                     <div class="text-center">
                                         <!-- Product price-->
-                                        $<?php echo $prod->price?>.00
+                                        <?php echo $prod->price?> kr
                                     </div>
                                 </div>
                                 <!-- Product actions-->

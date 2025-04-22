@@ -27,7 +27,7 @@ require_once('Models/UserDatabase.php');
             $this->pdo->query('CREATE TABLE IF NOT EXISTS Products (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 title VARCHAR(50),
-                teaser VARCHAR (50),
+                teaser VARCHAR (300),
                 price INT, 
                 img VARCHAR (100),
                 stockLevel INT, 
@@ -59,7 +59,7 @@ require_once('Models/UserDatabase.php');
              }
          }
          function initData(){
-            $this->addProductIfNotExists("Happy Birthday", "Bouquet of congratulations", 39, "assets/HappyBirthday.jpg",100, "Love Bouquets",100);
+            $this->addProductIfNotExists("Lago Limides", "Mountain and lake in daylight - calm landscape with natural colors", 299, "assets/lago_limides.jpg", 100, "landscape", 10);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");

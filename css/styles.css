@@ -4166,8 +4166,13 @@ textarea.form-control-lg {
 .topbanner-img {
   height: 90vh; 
   object-fit: cover; 
-  object-position: top; 
-  filter: brightness(80%);
+  object-position: 80% 50%; 
+  filter: brightness(90%);
+}
+@media (min-width: 1200px) {
+  .topbanner-img{
+    object-position: 50% 50%; 
+  }
 }
 
 .card {
