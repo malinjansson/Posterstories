@@ -3464,6 +3464,7 @@ textarea.form-control-lg {
   color: var(--bs-dropdown-link-color);
   text-align: inherit;
   text-decoration: none;
+  text-transform: capitalize;
   white-space: nowrap;
   background-color: transparent;
   border: 0;
