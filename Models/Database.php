@@ -64,7 +64,11 @@ require_once('Models/UserDatabase.php');
             $this->addProductIfNotExists("Furry Friends ", "An illustration of squirrels in a tree. Bring a touch of woodland charm to your child's room with this adorable poster!", 119, "assets/furry_friends.jpg", 90, "animals", 8);
             $this->addProductIfNotExists("Hey Kitty Cat ", "Illustration of a brown and white cat sitting calmly on the ground, with a relaxed and peaceful expression, surrounded by soft lines and neutral tones.", 119, "assets/hey_kitty_cat.jpg", 80, "animals", 15);
             $this->addProductIfNotExists("Air ballons", "Air balloons in the sky. Imagine the dreamlike view from a hot air balloon", 179, "assets/airballons.jpg", 80, "landscape", 6);
-            $this->addProductIfNotExists("Owl and Oak", "Illustration of an owl perched on a tree branch surrounded by smaller birds,", 199, "assets/owl_and_oak.jpg", 80, "animals", 2);
+            $this->addProductIfNotExists("Owl and Oak", "Illustration of an owl perched on a tree branch surrounded by smaller birds", 199, "assets/owl_and_oak.jpg", 80, "animals", 2);
+            $this->addProductIfNotExists("Fresh Lemons", "A close-up of several fresh yellow lemons", 179, "assets/lemons.jpg", 120, "Kitchen posters", 18);
+            $this->addProductIfNotExists("Summer Lemons", "Fresh yellow lemons resting on a sunlit rock near the seaA summery addition to your kitchen.", 179, "assets/summer_lemons.jpg", 150, "Kitchen posters", 4);
+            $this->addProductIfNotExists("Summer drinks", "A variety of glasses and pitchers filled with colorful fruit-infused drinks.", 229, "assets/summer_drinks.jpg", 170, "Kitchen posters", 10);
+            $this->addProductIfNotExists("Pink Cherry Blossoms", "Pink cherry blossoms in full bloom on tree. Bring the elegance of spring into your space", 229, "assets/pink_cherry_blossoms.jpg", 120, "Flowers", 3);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
