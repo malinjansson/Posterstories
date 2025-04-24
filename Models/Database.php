@@ -108,6 +108,11 @@ require_once('Models/UserDatabase.php');
             return $query->fetchAll(PDO::FETCH_CLASS,'Product');
         }
 
+        function getPopularProducts(){
+            $query = $this->pdo->query("SELECT * FROM Products ORDER BY popularity ASC LIMIT 10"); 
+            return $query->fetchAll(PDO::FETCH_CLASS, 'Product'); 
+        }
+
         function getCategoryProducts($catName){
             if($catName == ""){
                 $query = $this->pdo->query("SELECT * FROM Products");

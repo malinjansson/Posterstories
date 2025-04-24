@@ -34,9 +34,6 @@ require_once("Models/Database.php");
                     <form action="/search" method="GET">
                          <input type="text" name="q" placeholder="Search" class="form-control">
                       </form>   
-                    <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
-                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getUsername() ?>
-                     <?php } ?>
                 </div>
                 <form class="d-flex">
                     <button class="position-relative btn btn-outline-dark" type="submit">
@@ -44,6 +41,10 @@ require_once("Models/Database.php");
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
                     </button>
                 </form>
+
+                <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
+                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getEmail() ?>
+                <?php } ?>
             </div>
         </nav>
     <?php
