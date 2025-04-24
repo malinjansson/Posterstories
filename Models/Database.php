@@ -70,6 +70,7 @@ require_once('Models/UserDatabase.php');
             $this->addProductIfNotExists("Summer drinks", "A variety of glasses and pitchers filled with colorful fruit-infused drinks.", 229, "assets/summer_drinks.jpg", 170, "Kitchen posters", 10);
             $this->addProductIfNotExists("Pink Cherry Blossoms", "Pink cherry blossoms in full bloom on tree. Bring the elegance of spring into your space", 229, "assets/pink_cherry_blossoms.jpg", 120, "Flowers", 3);
             $this->addProductIfNotExists("Poppy Peach", "Oeach and pink poppies with bright yellow centers. Bring the elegance of spring into your space", 199, "assets/poppy_peach_blossom.jpg", 280, "Flowers", 9);
+            $this->addProductIfNotExists("Whisper Bloom", "A soft, dreamy print of blooming white spring flowers. Perfect for adding a fresh, calming touch to any space.", 279, "assets/whisper_bloom.jpg", 170, "Flowers", 20);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
