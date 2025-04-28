@@ -29,6 +29,9 @@ $header = $catName;
         <!-- Navigation-->
         <?php HeaderNav()?>
         <!-- Section-->
+        <div class="text-center">
+                    <h2 class="category-heading"><?php echo $header ;?></h2>
+                </div>
         <?php CategoryProductCards($catName)?>
         <!-- Footer-->
         <?php Footer()?>
