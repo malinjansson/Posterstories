@@ -2,6 +2,7 @@
 require_once("vendor/autoload.php");
 require_once(dirname(__FILE__) ."/Utils/router.php");
 
+ob_start();
 session_start();
 
 $dotenv = Dotenv\Dotenv::createImmutable(".");
@@ -40,6 +41,9 @@ $router->addRoute('/user/registerthanks', function () {
 });
 $router->addRoute('/search', function () {
     require_once( __DIR__ .'/pages/search.php');
+});
+$router->addRoute('/addToCart', function () {
+    require_once( __DIR__ .'/pages/addToCart.php');
 });
 $router->dispatch();
 ?>
