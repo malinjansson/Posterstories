@@ -15,6 +15,9 @@ $router->addRoute('/', function () {
 $router->addRoute('/category', function () {
     require_once( __DIR__ .'/pages/category.php');
 });
+$router->addRoute('/product', function () {
+    require_once( __DIR__ .'/pages/productDetailPage.php');
+});
 $router->addRoute('/admin', function () {
     require __DIR__ .'/pages/admin.php';
 });
