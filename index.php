@@ -2,6 +2,8 @@
 require_once("vendor/autoload.php");
 require_once(dirname(__FILE__) ."/Utils/router.php");
 
+session_start();
+
 $dotenv = Dotenv\Dotenv::createImmutable(".");
 $dotenv->load();
 
