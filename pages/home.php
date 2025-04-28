@@ -27,6 +27,11 @@ $dbConnection = new Database();
         <!-- Header-->
         <?php TopBanner()?>
         <!-- Section-->
+        <section class="py-5">
+            <div class="text-center">
+                <h2 class="top-heading">Bestsellers</h2>
+            </div>
+        </section>
         <?php ProductCards()?>
         <!-- Footer-->
         <?php Footer()?>

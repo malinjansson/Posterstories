@@ -35,7 +35,7 @@ $product = $dbConnection->getProduct($id);
 
                     <!-- Produktinfo -->
                     <div class="col-md-6">
-                    <h2 class="display-5"><?php echo $product->title?></h2>
+                    <h2 class="top-heading"><?php echo $product->title?></h2>
                     <h3 class="text-primary"><?php echo $product->price?> kr</h3>
                     <p class="mt-4 fs-4 fw-bold">Description</p>
                     <p class="mt-1"><?php echo $product->teaser?></p>

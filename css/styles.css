@@ -7666,6 +7666,7 @@ textarea.form-control-lg {
 }
 
 .mt-auto {
+  text-transform: uppercase;
   margin-top: auto !important;
 }
 
