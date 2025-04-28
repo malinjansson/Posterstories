@@ -6,4 +6,5 @@
         public $productName;
         public $productPrice;
         public $rowPrice; 
-    }
+    };
+?>
