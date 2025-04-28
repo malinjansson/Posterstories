@@ -25,7 +25,7 @@ $product = $dbConnection->getProduct($id);
         <!-- Navigation-->
         <?php HeaderNav()?>
         <!-- Section-->
-        <section class="py-5">
+        <section class="py-1">
             <div class="container my-5">
                 <div class="row">
                     <!-- Produktbild -->
@@ -34,11 +34,9 @@ $product = $dbConnection->getProduct($id);
                     </div>
 
                     <!-- Produktinfo -->
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-4">
                     <h2 class="top-heading"><?php echo $product->title?></h2>
-                    <h3 class="text-primary"><?php echo $product->price?> kr</h3>
-                    <p class="mt-4 fs-4 fw-bold">Description</p>
-                    <p class="mt-1"><?php echo $product->teaser?></p>
+                    <h3 class="text-black"><?php echo $product->price?> kr</h3>
 
                     <div class="d-grid gap-2 my-4">
                         <button class="btn btn-primary btn-lg" type="button">Add to cart</button>
@@ -62,11 +60,11 @@ $product = $dbConnection->getProduct($id);
                             <i class="bi bi-check-circle" style="font-size: 1rem; color: black;"></i> Open purchase for 30 days
                         </div>
                     </div>
+                    <p class="mt-4 fs-5 fw-bold">Description</p>
+                    <p class="mt-1"><?php echo $product->teaser?></p>
                 </div>
             </div>
         </section>
-       
-        
         <!-- Footer-->
         <?php Footer()?>
         <!-- Bootstrap core JS-->
