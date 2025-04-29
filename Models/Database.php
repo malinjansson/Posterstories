@@ -82,6 +82,9 @@ require_once('Models/CartItem.php');
             $this->addProductIfNotExists("Pink Cherry Blossoms", "Pink cherry blossoms in full bloom on tree. Bring the elegance of spring into your space", 229, "assets/pink_cherry_blossoms.jpg", 120, "Flowers", 3);
             $this->addProductIfNotExists("Poppy Peach", "Oeach and pink poppies with bright yellow centers. Bring the elegance of spring into your space", 199, "assets/poppy_peach_blossom.jpg", 280, "Flowers", 9);
             $this->addProductIfNotExists("Whisper Bloom", "A soft, dreamy print of blooming white spring flowers. Perfect for adding a fresh, calming touch to any space.", 279, "assets/whisper_bloom.jpg", 170, "Flowers", 20);
+            $this->addProductIfNotExists("Blush Garden", "Vibrant pink flowers in soft focus. This dreamy floral print brings a romantic, whimsical feel to any room.", 179, "assets/blush_garden.jpg", 120, "Flowers", 10);
+            $this->addProductIfNotExists("Coffee Art", "A striking overhead image of a latte with heart-shaped foam art, surrounded by rich, dark coffee beans. Perfect for coffee lovers, this print adds warmth and energy to any kitchen, café, or office space.", 179, "assets/coffee_art.jpg", 100, "Kitchen posters", 11);
+            $this->addProductIfNotExists("Lake village", "A charming lakeside village nestled beneath dramatic mountain cliffs. This print captures the timeless beauty of coastal Italy—perfect for adding wanderlust and warmth to any space.", 199, "assets/lake_village.jpg", 110, "Landscape", 16);
         }
         function getProduct($id){
             $query= $this->pdo->prepare("SELECT * FROM Products WHERE id = :id");
@@ -149,7 +152,7 @@ require_once('Models/CartItem.php');
                 $sortOrder = "asc";
             }
 
-            $query = $this->pdo->prepare("SELECT * FROM Products WHERE title LIKE :q or categoryName like :q ORDER BY $sortColumn $sortOrder"); // Products är TABELL
+            $query = $this->pdo->prepare("SELECT * FROM Products WHERE title LIKE :q or categoryName like :q ORDER BY $sortColumn $sortOrder");
             $query->execute(['q' => "%$q%"]);
             return $query->fetchAll(PDO::FETCH_CLASS, 'Product');
         }
