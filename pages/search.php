@@ -36,7 +36,7 @@ $sortOrder = $_GET['sortOrder'] ?? "";
                  <?php 
                  foreach($dbConnection->searchProducts($q,$sortColumn, $sortOrder) as $prod){
                  ?>                     
-                   <div class="col mb-5">
+                   <div class="col mb-5 mt-5">
                             <div class="card h-100">
                                 <?php if($prod->price < 10) { ?>
                                     <!-- Sale badge-->
@@ -57,7 +57,7 @@ $sortOrder = $_GET['sortOrder'] ?? "";
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->id; ?>">Shop now</a></div>
                                 </div>
                             </div>
                         </div>   
