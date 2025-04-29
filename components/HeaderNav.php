@@ -47,12 +47,12 @@ require_once("Models/Cart.php");
                       </form>   
                 </div>
                 <form class="d-flex">
-                    <button class="position-relative btn btn-outline-dark" type="submit">
+                    <a href="/cart" class="position-relative btn btn-outline-dark" type="submit">
                         <i class="bi-bag-fill me-1"></i>
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                             <?php echo $cart->getItemsCount(); ?>
                         </span>
-                    </button>
+                    </a>
                 </form>
 
                 <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
