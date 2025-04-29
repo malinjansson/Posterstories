@@ -129,12 +129,20 @@ require_once('Models/CartItem.php');
             return $query->fetchAll(PDO::FETCH_CLASS, 'Product'); 
         }
 
-        function getCategoryProducts($catName){
-            if($catName == ""){
-                $query = $this->pdo->query("SELECT * FROM Products");
+        function getCategoryProducts($catName, $sortColumn, $sortOrder) {
+            if (!in_array($sortColumn, ["title", "price"])) {
+                $sortColumn = "title";
+            }
+            if (!in_array($sortOrder, ["asc", "desc"])) {
+                $sortOrder = "asc";
+            }
+        
+            if ($catName == "") {
+                $query = $this->pdo->query("SELECT * FROM Products ORDER BY $sortColumn $sortOrder");
                 return $query->fetchAll(PDO::FETCH_CLASS, 'Product');
             }
-            $query = $this->pdo->prepare("SELECT * FROM Products WHERE categoryName = :categoryName");
+        
+            $query = $this->pdo->prepare("SELECT * FROM Products WHERE categoryName = :categoryName ORDER BY $sortColumn $sortOrder");
             $query->execute(['categoryName' => $catName]);
             return $query->fetchAll(PDO::FETCH_CLASS, 'Product');
         }
