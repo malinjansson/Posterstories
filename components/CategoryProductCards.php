@@ -19,11 +19,11 @@ require_once("Models/Database.php");
                 <h2 class="top-heading"><?php echo $header ;?></h2>
             </div>
             <div class="container px-4 px-lg-5 mt-5">
-            <a href="?sortColumn=title&sortOrder=asc&catname=<?php echo $catName;?>" class="btn btn-secondary">Title asc</>
-                    <a href="?sortColumn=title&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-secondary">Title desc</a>
-                    <a href="?sortColumn=price&sortOrder=asc&catname=<?php echo $catName;?>" class="btn btn-secondary">Price asc</a>
-                    <a href="?sortColumn=price&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-secondary">Price desc</a>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <a href="?sortColumn=title&sortOrder=asc&catname=<?php echo $catName;?>" class="btn btn-primary">A-Z</a>
+                    <a href="?sortColumn=title&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-primary">Z-A</a>
+                    <a href="?sortColumn=price&sortOrder=asc&catname=<?php echo $catName;?>" class="btn btn-primary">Lowest Price</a>
+                    <a href="?sortColumn=price&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-primary">Highest Price</a>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                     <?php
                     foreach($dbConnection->getCategoryProducts($catName, $sortColumn, $sortOrder) as $prod) {
                     ?>

@@ -10,6 +10,11 @@ $dbConnection = new Database();
 $q = $_GET['q'] ?? "";
 $sortColumn = $_GET['sortColumn'] ?? "";
 $sortOrder = $_GET['sortOrder'] ?? "";
+
+$header = $q;
+if($q == ""){
+ $header = "All Products";
+} 
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +32,15 @@ $sortOrder = $_GET['sortOrder'] ?? "";
         <?php HeaderNav()?>
         <!-- Section-->
         <section class="py-5">
+        <div class="text-center">
+                <h2 class="top-heading"><?php echo $header ;?></h2>
+        </div>
              <div class="container px-4 px-lg-5 mt-5">
-                    <a href="?sortColumn=title&sortOrder=asc&q=<?php echo $q;?>" class="btn btn-secondary">Title asc</>
-                    <a href="?sortColumn=title&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-secondary">Title desc</a>
-                    <a href="?sortColumn=price&sortOrder=asc&q=<?php echo $q;?>" class="btn btn-secondary">Price asc</a>
-                    <a href="?sortColumn=price&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-secondary">Price desc</a>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <a href="?sortColumn=title&sortOrder=asc&q=<?php echo $q;?>" class="btn btn-primary">A-Z</a>
+                <a href="?sortColumn=title&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-primary">Z-A</a>
+                <a href="?sortColumn=price&sortOrder=asc&q=<?php echo $q;?>" class="btn btn-primary">Lowest Price</a>
+                <a href="?sortColumn=price&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-primary">Highest Price</a>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
                  <?php 
                  foreach($dbConnection->searchProducts($q,$sortColumn, $sortOrder) as $prod){
                  ?>                     
