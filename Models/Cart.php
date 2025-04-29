@@ -1,21 +1,29 @@
 <?php
 
 class Cart {
-    private $dbContext;
+    private $dbConnection;
     private $sessionId;
     private $userId;
     private $cartItems = [];
 
-    public function __construct($dbContext, $sessionId, $userId = null) {
-        $this->dbContext = $dbContext;
-        $this->session_id = $sessionId;
+    public function getItemsCount() {
+        $totalQuantity = 0;
+        foreach($this->cartItems as $item){
+            $totalQuantity += $item->quantity;
+        }
+        return $totalQuantity;
+    }
+
+    public function __construct($dbConnection, $sessionId, $userId = null) {
+        $this->dbConnection = $dbConnection;
+        $this->sessionId = $sessionId;
         $this->userId = $userId;
-        $this->cartItems = $this->dbContext->getCartItems($userId,$sessionId);
+        $this->cartItems = $this->dbConnection->getCartItems($userId,$sessionId);
 
     }
 
     public function convertSessionToUser($userId, $newSessionId) {
-        $this->dbContext->convertSessionToUser($this->sessionId, $userId, $newSessionId);
+        $this->dbConnection->convertSessionToUser($this->sessionId, $userId, $newSessionId);
       
         $this->userId = $userId;
         $this->sessionId = $newSessionId;
@@ -31,7 +39,7 @@ class Cart {
         }else{
             $item->quantity += $quantity;
         }
-        $this->dbContext->updateCartItem($this->userId,$this->sessionId, $productId, $item->quantity);
+        $this->dbConnection->updateCartItem($this->userId,$this->sessionId, $productId, $item->quantity);
     }
 
     public function removeItem($productId, $quantity) {
@@ -40,7 +48,7 @@ class Cart {
             return;
         }
         $item->quantity -= $quantity;
-        $this->dbContext->updateCartItem($this->userId,$this->sessionId, $productId, $item->quantity);
+        $this->dbConnection->updateCartItem($this->userId,$this->sessionId, $productId, $item->quantity);
         if ($item->quantity <= 0) {
             array_splice($this->cartItems, array_search($item, $this->cartItems), 1);
         }

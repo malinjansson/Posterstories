@@ -1,7 +1,18 @@
 <?php
 require_once("Models/Database.php");
+require_once("Models/Cart.php");
     function HeaderNav (){
         $dbConnection = new Database();
+
+        $userId = null;
+        $session_id = null;
+        
+        if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){
+            $userId = $dbConnection->getUsersDatabase()->getAuth()->getUserId();
+        }
+        $session_id = session_id();
+        
+        $cart = new Cart($dbConnection, $session_id, $userId);
     ?>
            <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -38,7 +49,9 @@ require_once("Models/Database.php");
                 <form class="d-flex">
                     <button class="position-relative btn btn-outline-dark" type="submit">
                         <i class="bi-bag-fill me-1"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">0</span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                            <?php echo $cart->getItemsCount(); ?>
+                        </span>
                     </button>
                 </form>
 

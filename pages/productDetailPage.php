@@ -9,6 +9,16 @@ require_once("Models/Database.php");
 $id = $_GET['id'];
 $dbConnection = new Database();
 $product = $dbConnection->getProduct($id);
+
+$userId = null;
+$session_id = null;
+
+if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){
+    $userId = $dbConnection->getUsersDatabase()->getAuth()->getUserId();
+}
+$session_id = session_id();
+
+$cart = new Cart($dbConnection, $session_id, $userId);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +49,9 @@ $product = $dbConnection->getProduct($id);
                     <h3 class="text-black"><?php echo $product->price?> kr</h3>
 
                     <div class="d-grid gap-2 my-4">
-                        <button class="btn btn-primary btn-lg" type="button">Add to cart</button>
+                        <a class="btn btn-primary btn-lg" href="/addToCart?productId=<?php echo $product->id ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ) ?>">
+                            Add to cart
+                        </a>
                     </div>
 
                     <div class="row g-2 pb-3">

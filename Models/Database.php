@@ -159,11 +159,19 @@ require_once('Models/CartItem.php');
                 $query = $this->pdo->prepare("UPDATE CartItem SET userId=:userId WHERE userId IS NULL AND  sessionId = :sessionId");
                 $query->execute(['sessionId' => $sessionId, 'userId' => $userId]);
             }
-            $query = $this->pdo->prepare("SELECT CartItem.Id, CartItem.productId, CartItem.quantity, Products.title as productName, Products.price as productPrice, Products.price * CartItem.quantity as rowPrice     FROM CartItem JOIN Products ON Products.id=CartItem.productId  WHERE userId=:userId or sessionId = :sessionId");
+
+            $query = $this->pdo->prepare("SELECT CartItem.Id as id, CartItem.productId, CartItem.quantity, Products.title as productName, Products.price as productPrice, Products.price * CartItem.quantity as rowPrice     FROM CartItem JOIN Products ON Products.id=CartItem.productId  WHERE userId=:userId or sessionId = :sessionId");
             $query->execute(['sessionId' => $sessionId, 'userId' => $userId]);
+
 
             return $query->fetchAll(PDO::FETCH_CLASS, 'CartItem');
         }
+
+        function convertSessionToUser($session_id, $userId, $newSessionId){
+            $query = $this->pdo->prepare("UPDATE CartItem SET userId=:userId, session_id=:newSessionId WHERE sessionId = :sessionId");
+            $query->execute(['sessionId' => $session_id, 'userId' => $userId, 'newSessionId' => $newSessionId]);
+        }
+
         function updateCartItem($userId, $sessionId,$productId, $quantity){
             if($quantity <= 0){
                 $query = $this->pdo->prepare("DELETE FROM CartItem WHERE (userId=:userId or sessionId=:sessionId) AND productId = :productId");
@@ -181,5 +189,6 @@ require_once('Models/CartItem.php');
                 $query->execute([ 'userId' => $userId, 'sessionId' => $sessionId, 'productId' => $productId, 'quantity' => $quantity]);
             }
         }
+ 
     };
 ?>

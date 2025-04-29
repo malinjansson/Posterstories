@@ -14,9 +14,12 @@
      $password = $_POST['password'];
  
      try{  
-         $dbConnection->getUsersDatabase()->getAuth()->login($username, $password);
-         header('Location: /');
-         exit;
+        $cart = new Cart($dbConection, session_id(), null);
+        $cart->convertSessionToUser($dbConnection->getUsersDatabase()->getAuth()->getUserId(), session_id());
+        $dbConnection->getUsersDatabase()->getAuth()->login($username, $password);
+        
+        header('Location: /');
+        exit;
      }
      catch(Exception $e){
          $errorMessage = "Kunde inte logga in";
