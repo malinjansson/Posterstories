@@ -64,6 +64,7 @@ $cart = new Cart($dbConnection, $session_id, $userId);
                     <tr>
                         <td colspan="3">Total</td>
                         <td><?php echo $cart->getTotalPrice(); ?></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
