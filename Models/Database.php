@@ -40,6 +40,7 @@ require_once('Models/CartItem.php');
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 productId INT,
                 quantity INT,
+                addedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 sessionId VARCHAR(50), 
                 userId INT NULL,
                 FOREIGN KEY (productId) REFERENCES Products(id) ON DELETE CASCADE
