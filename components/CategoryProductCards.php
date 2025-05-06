@@ -23,7 +23,7 @@ require_once("Models/Database.php");
                     <a href="?sortColumn=title&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-primary">Z-A</a>
                     <a href="?sortColumn=price&sortOrder=asc&catname=<?php echo $catName;?>" class="btn btn-primary">Lowest Price</a>
                     <a href="?sortColumn=price&sortOrder=desc&catname=<?php echo $catName;?>" class="btn btn-primary">Highest Price</a>
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5">
                     <?php
                     foreach($dbConnection->getCategoryProducts($catName, $sortColumn, $sortOrder) as $prod) {
                     ?>
