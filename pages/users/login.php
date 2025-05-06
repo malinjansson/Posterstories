@@ -14,7 +14,7 @@
      $password = $_POST['password'];
  
      try{  
-        $cart = new Cart($dbConection, session_id(), null);
+        $cart = new Cart($dbConnection, session_id(), null);
         $cart->convertSessionToUser($dbConnection->getUsersDatabase()->getAuth()->getUserId(), session_id());
         $dbConnection->getUsersDatabase()->getAuth()->login($username, $password);
         
@@ -22,7 +22,8 @@
         exit;
      }
      catch(Exception $e){
-         $errorMessage = "Kunde inte logga in";
+         $errorMessage = "Couldn't log in";
+         die($e->getMessage());
      }
  }else{
     
@@ -43,26 +44,28 @@
     <?php HeaderNav()?>
      <!-- Section-->
      <section class="py-5">
-     <div class="container px-4 px-lg-5 mt-5">
+     <div class="container px-4 px-lg-5 mt-2 mb-5">
      <h1>Log in</h1>
      <?php
      if($errorMessage != ""){
          echo "<div class='alert alert-danger' role='alert'>".$errorMessage."</div>";
      }
      ?>
-     <p>Logga in med din email och lösenord</p>
+     <p class="mt-1 mb-5">Log in with you email and password</p>
      <form method="POST" > 
              <div class="form-group">
                  <label for="username">Email</label>
                  <input type="text" class="form-control" name="username" value="<?php echo $username ?>">
              </div>
              <div class="form-group">
-                 <label for="password">Password</label>
+                 <label for="password" class="mt-3">Password</label>
                  <input type="password" class="form-control" name="password" value="">
              </div>
-             <input type="submit" class="btn btn-primary" value="Login">
-             <a href="/register" class="btn btn-secondary">Register</a>
-             <a href="/forgot" class="btn btn-secondary">Forgot password</a>
+             <div class="mt-5">
+                <input type="submit" class="btn btn-primary" value="Login">
+                <a href="/register" class="btn btn-primary">Register</a>
+                <a href="/forgot" class="btn btn-primary">Forgot password</a>
+             </div>
          </form>
  </div>
  </section>

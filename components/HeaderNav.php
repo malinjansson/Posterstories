@@ -42,6 +42,9 @@ require_once("Models/Cart.php");
                          }
                          ?>
                     </ul>
+                    <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
+                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getEmail() ?>
+                    <?php } ?>
                     <form action="/search" method="GET">
                          <input type="text" name="q" placeholder="Search" class="form-control">
                       </form>   
@@ -54,10 +57,6 @@ require_once("Models/Cart.php");
                         </span>
                     </a>
                 </form>
-
-                <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
-                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getEmail() ?>
-                <?php } ?>
             </div>
         </nav>
     <?php

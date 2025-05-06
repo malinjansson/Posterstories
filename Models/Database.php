@@ -179,7 +179,7 @@ require_once('Models/CartItem.php');
         }
 
         function convertSessionToUser($session_id, $userId, $newSessionId){
-            $query = $this->pdo->prepare("UPDATE CartItem SET userId=:userId, session_id=:newSessionId WHERE sessionId = :sessionId");
+            $query = $this->pdo->prepare("UPDATE CartItem SET userId=:userId, sessionId=:newSessionId WHERE sessionId = :sessionId");
             $query->execute(['sessionId' => $session_id, 'userId' => $userId, 'newSessionId' => $newSessionId]);
         }
 
