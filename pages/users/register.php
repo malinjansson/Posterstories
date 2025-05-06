@@ -47,27 +47,27 @@
     <?php HeaderNav()?>
      <!-- Section-->
      <section class="py-5">
-     <div class="container px-4 px-lg-5 mt-5">
-     <h1>Register</h1>
+     <div class="container px-4 px-lg-5 mt-1">
+     <h1 class="mb-5">Register</h1>
      <?php
      if($errorMessage != ""){
          echo "<div class='alert alert-danger' role='alert'>".$errorMessage."</div>";
      }
      ?>
-     <form method="POST" > 
+     <form method="POST" class=> 
              <div class="form-group">
                  <label for="username">Email</label>
                  <input type="text" class="form-control" name="username" value="<?php echo $username ?>">
              </div>
              <div class="form-group">
-                 <label for="password">Password</label>
+                 <label for="password" class="mt-3">Password</label>
                  <input type="password" class="form-control" name="password" value="">
              </div>
              <div class="form-group">
-                 <label for="password">Password again</label>
+                 <label for="password" class="mt-3">Password again</label>
                  <input type="password" class="form-control" name="password2" value="">
              </div>
-             <input type="submit" class="btn btn-primary" value="Register">
+             <input type="submit" class="btn btn-primary mt-3 mb-5" value="Register">
          </form>
  </div>
  </section>

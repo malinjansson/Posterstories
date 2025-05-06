@@ -42,21 +42,23 @@ require_once("Models/Cart.php");
                          }
                          ?>
                     </ul>
+                    <div class="d-flex align-items-center gap-3">
                     <?php if($dbConnection->getUsersDatabase()->getAuth()->isLoggedIn()){ ?>
-                         Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getEmail() ?>
+                        Current user: <?php echo $dbConnection->getUsersDatabase()->getAuth()->getEmail() ?>
                     <?php } ?>
                     <form action="/search" method="GET">
                          <input type="text" name="q" placeholder="Search" class="form-control">
-                      </form>   
+                    </form>   
+                    <form class="d-flex">
+                        <a href="/cart" class="position-relative btn btn-outline-dark" type="submit">
+                            <i class="bi-bag-fill me-1"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                                <?php echo $cart->getItemsCount(); ?>
+                            </span>
+                        </a>
+                    </form>
+                    </div>
                 </div>
-                <form class="d-flex">
-                    <a href="/cart" class="position-relative btn btn-outline-dark" type="submit">
-                        <i class="bi-bag-fill me-1"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
-                            <?php echo $cart->getItemsCount(); ?>
-                        </span>
-                    </a>
-                </form>
             </div>
         </nav>
     <?php

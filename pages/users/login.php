@@ -63,7 +63,7 @@
              </div>
              <div class="mt-5">
                 <input type="submit" class="btn btn-primary" value="Login">
-                <a href="/register" class="btn btn-primary">Register</a>
+                <a href="/user/register" class="btn btn-primary">Register</a>
                 <a href="/forgot" class="btn btn-primary">Forgot password</a>
              </div>
          </form>
