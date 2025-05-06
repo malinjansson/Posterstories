@@ -2782,7 +2782,7 @@ textarea.form-control-lg {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
-  --bs-btn-font-size: 1rem;
+  --bs-btn-font-size: 0.68rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
   --bs-btn-color: #212529;
@@ -2812,6 +2812,12 @@ textarea.form-control-lg {
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (min-width: 1200px) {
+  .btn {
+    --bs-btn-font-size: 1rem;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .btn {
@@ -8022,6 +8028,13 @@ textarea.form-control-lg {
 
 .fw-bolder {
   font-weight: bolder !important;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1200px) {
+  .fw-bolder {
+    font-size: 1.2rem;
+  }
 }
 
 .lh-1 {
@@ -8050,6 +8063,13 @@ textarea.form-control-lg {
 
 .text-center {
   text-align: center !important;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1200px) {
+  .text-center {
+    font-size: 1rem;
+  }
 }
 
 .text-decoration-none {
