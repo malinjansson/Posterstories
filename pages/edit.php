@@ -37,7 +37,7 @@ require_once("Models/Database.php");
     <?php HeaderNav()?>
      <!-- Section-->
      <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+        <div class="container px-4 px-lg-5 mt-1">
             <form method="POST">
                 <div class="form-group">
                     <lable for="title">Title</lable>
@@ -67,7 +67,7 @@ require_once("Models/Database.php");
                     <lable for="title">Popularity</lable>
                     <input type="text" class="form-control" name="popularity" value="<?php echo $product->popularity?>">
                 </div>
-                <input type="submit" value="Update">
+                <input  class="btn btn-primary mt-3" type="submit" value="Update">
             </form>
         </div>
     </section>
