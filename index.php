@@ -1,12 +1,15 @@
 <?php 
 require_once("vendor/autoload.php");
 require_once(dirname(__FILE__) ."/Utils/router.php");
+require_once("Utils/logger.php");
 
 ob_start();
 session_start();
 
 $dotenv = Dotenv\Dotenv::createImmutable(".");
 $dotenv->load();
+
+set_exception_handler('exception_handler');
 
 $router = new Router();
 $router->addRoute('/', function () {
@@ -52,4 +55,10 @@ $router->addRoute('/addToCart', function () {
     require_once( __DIR__ .'/pages/addToCart.php');
 });
 $router->dispatch();
+
+function exception_handler(Throwable $exception) {
+    $logger = Logger::GetInstance();
+    $logger->error("exception",[$exception->getMessage()]);
+    $logger->error("exception",$exception->getTrace());
+}
 ?>
