@@ -4,12 +4,17 @@ require_once("components/HeadLinks.php");
 require_once("components/HeaderNav.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
+require_once("Utils/searchengine.php");
 
 $dbConnection = new Database();
 
 $q = $_GET['q'] ?? "";
-$sortColumn = $_GET['sortColumn'] ?? "";
-$sortOrder = $_GET['sortOrder'] ?? "";
+$sortColumn = $_GET['sortColumn'] ?? "title";
+$sortOrder = $_GET['sortOrder'] ?? "asc";
+
+
+$searchEngine = new SearchEngine();
+$result = $searchEngine->search($q,$sortColumn, $sortOrder); 
 
 $header = $q;
 if($q == ""){
@@ -46,10 +51,6 @@ if($q == ""){
                  ?>                     
                    <div class="col mb-5 mt-5">
                             <div class="card h-100">
-                                <?php if($prod->price < 10) { ?>
-                                    <!-- Sale badge-->
-                                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                                <?php } ?>
                                 <!-- Product image-->
                                 <img class="card-img-top" src="<?php echo $prod->img; ?>" alt="..." />
                                 <!-- Product details-->
@@ -65,7 +66,7 @@ if($q == ""){
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->id; ?>">Shop now</a></div>
+                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->pimId; ?>">Shop now</a></div>
                                 </div>
                             </div>
                         </div>   
