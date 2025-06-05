@@ -5,7 +5,7 @@ require_once("components/HeaderNav.php");
 require_once("components/Footer.php");
 require_once("Models/Database.php");
 
-    $id = $_GET['id'];
+    $pimId = $_GET['id'];
     $dbConnection = new Database();
     $product = $dbConnection->getProduct($pimId);
 
@@ -45,7 +45,7 @@ require_once("Models/Database.php");
                 </div>
                 <div class="form-group">
                     <lable for="title">Teaser</lable>
-                    <input type="text" class="form-control" name="teaser" value="<?php echo $product->teaser?>">
+                    <input type="text" class="form-control" name="teaser" value="<?php echo $product->description?>">
                 </div>
                 <div class="form-group">
                     <lable for="title">Img</lable>
