@@ -45,7 +45,7 @@ if($q == ""){
                 <a href="?sortColumn=title&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-primary">Z-A</a>
                 <a href="?sortColumn=price&sortOrder=asc&q=<?php echo $q;?>" class="btn btn-primary">Lowest Price</a>
                 <a href="?sortColumn=price&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-primary">Highest Price</a>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-center">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-left">
                  <?php 
                  foreach($dbConnection->searchProducts($q,$sortColumn, $sortOrder) as $prod){
                  ?>                     
