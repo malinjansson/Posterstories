@@ -49,7 +49,7 @@ $cart = new Cart($dbConnection, $session_id, $userId);
                     <h3 class="text-black"><?php echo $product->price?> kr</h3>
 
                     <div class="d-grid gap-2 my-4">
-                        <a class="btn btn-primary btn-lg" href="/addToCart?productId=<?php echo $product->id ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ) ?>">
+                        <a class="btn btn-primary btn-lg" href="/addToCart?productId=<?php echo $product->pimId ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ) ?>">
                             Add to cart
                         </a>
                     </div>
@@ -73,7 +73,7 @@ $cart = new Cart($dbConnection, $session_id, $userId);
                         </div>
                     </div>
                     <p class="mt-4 fs-5 fw-bold">Description</p>
-                    <p class="mt-1"><?php echo $product->teaser?></p>
+                    <p class="mt-1"><?php echo $product->description?></p>
                 </div>
             </div>
         </section>

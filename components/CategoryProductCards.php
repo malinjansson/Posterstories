@@ -44,7 +44,7 @@ require_once("Models/Database.php");
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->id; ?>">Shop now</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->pimId; ?>">Shop now</a></div>
                                 </div>
                             </div>
                         </div> 

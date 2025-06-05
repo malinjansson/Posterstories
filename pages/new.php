@@ -15,7 +15,8 @@ require_once("Models/Database.php");
         $stockLevel = $_POST['stockLevel'];
         $categoryName = $_POST['categoryName'];
         $popularity = $_POST['popularity'];
-        $dbConnection->insertProduct($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity);
+        $active = $_POST['active'];
+        $dbConnection->insertProduct($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity, $active);
         header("Location: /admin");
         exit;
     } else{
@@ -62,6 +63,10 @@ require_once("Models/Database.php");
                 <div class="form-group">
                     <lable for="title">Category name</lable>
                     <input type="text" class="form-control" name="categoryName" value="">
+                </div>
+                <div class="form-group">
+                    <lable for="Active">Active</lable>
+                    <input type="text" class="form-control" name="active" value="">
                 </div>
                 <input type="submit" value="Create">
             </form>
