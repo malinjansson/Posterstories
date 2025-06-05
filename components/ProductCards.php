@@ -11,10 +11,6 @@ require_once("Models/Database.php");
                     ?>
                         <div class="col mb-5">
                             <div class="card h-100">
-                                <?php if($prod->price < 10) { ?>
-                                    <!-- Sale badge-->
-                                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                                <?php } ?>
                                 <!-- Product image-->
                                 <img class="card-img-top" src="<?php echo $prod->img; ?>" alt="..." />
                                 <!-- Product details-->
