@@ -11,10 +11,7 @@ $dbConnection = new Database();
 $q = $_GET['q'] ?? "";
 $sortColumn = $_GET['sortColumn'] ?? "title";
 $sortOrder = $_GET['sortOrder'] ?? "asc";
-
-
 $searchEngine = new SearchEngine();
-$result = $searchEngine->search($q,$sortColumn, $sortOrder); 
 
 $header = $q;
 if($q == ""){
@@ -47,7 +44,7 @@ if($q == ""){
                 <a href="?sortColumn=price&sortOrder=desc&q=<?php echo $q;?>" class="btn btn-primary">Highest Price</a>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 mt-5 justify-content-left">
                  <?php 
-                 foreach($dbConnection->searchProducts($q,$sortColumn, $sortOrder) as $prod){
+                 foreach($searchEngine->search($q,$sortColumn, $sortOrder) as $prod){
                  ?>                     
                    <div class="col mb-5 mt-5">
                             <div class="card h-100">

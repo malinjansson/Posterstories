@@ -109,24 +109,20 @@ class SearchEngine{
             $response = $this->client->post("/api/index/v1/{$this->index_name}/_search", [
                 'json' => $query
             ]);
-
+ 
             $data = json_decode($response->getBody(), true);
-
-                    
+ 
             if (empty($data['hits']['total']['value'])) {
                 return null;
             }
-
-
+ 
             $data["hits"]["hits"] = $this->convertSearchEngineArrayToProduct($data["hits"]["hits"]);
-
-            return  ["data"=>$data["hits"]["hits"],
-                     "aggregations"=>$data["aggregations"]["facets"]['names']['buckets']
-                    ];
+ 
+            return  $data["hits"]["hits"];
         } catch (RequestException $e) {
             echo $e->getMessage();
             return null;
-        }  
+        }
     }
 
     function convertSearchEngineArrayToProduct($searchengineResults){
@@ -137,6 +133,7 @@ class SearchEngine{
             $prod->title = $hit["_source"]["title"];
             $prod->description = $hit["_source"]["description"];
             $prod->price = $hit["_source"]["price"];
+            $prod->img = $hit["_source"]["img"];
             $prod->stockLevel = $hit["_source"]["stockLevel"];
             $prod->categoryName = $hit["_source"]["categoryName"];
 
