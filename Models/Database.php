@@ -94,20 +94,20 @@ require_once('Models/CartItem.php');
             return $query->fetch();
         }
         
-        // function updateProduct($product){
-        //     $p = "UPDATE Products SET title = :title, teaser = :teaser, price = :price, img = :img, stockLevel = :stockLevel, categoryName = :categoryName, popularity = :popularity WHERE id = :id";
-        //     $query = $this->pdo->prepare($p);
-        //     $query->execute([
-        //         'title' => $product->title, 
-        //         'teaser' => $product->teaser,
-        //         'price' => $product->price,
-        //         'img' => $product->img,
-        //         'stockLevel' => $product->stockLevel,
-        //         'categoryName' => $product->categoryName, 
-        //         'popularity' => $product->popularity,
-        //         'id' => $product->id
-        //         ]);
-        // }
+         function updateProduct($product){
+             $p = "UPDATE Products SET title = :title, teaser = :teaser, price = :price, img = :img, stockLevel = :stockLevel, categoryName = :categoryName, popularity = :popularity WHERE pimId = :id";
+             $query = $this->pdo->prepare($p);
+             $query->execute([
+                 'title' => $product->title, 
+                 'teaser' => $product->teaser,
+                 'price' => $product->price,
+                 'img' => $product->img,
+                 'stockLevel' => $product->stockLevel,
+                 'categoryName' => $product->categoryName, 
+                 'popularity' => $product->popularity,
+                 'id' => $product->pimId
+                 ]);
+        }
         function deleteProduct($id){
             $query = $this->pdo->prepare("DELETE FROM Products WHERE pimId = :id");
             $query->execute(['id' => $id]);
