@@ -113,9 +113,9 @@ require_once('Models/CartItem.php');
             $query->execute(['id' => $id]);
         }
 
-        function getAllProducts ($sortColumn="id", $sortOrder="asc"){
-            if(!in_array($sortColumn,["id", "title", "price", "stockLevel", "categoryName"])){
-                $sortColumn = "id";
+        function getAllProducts ($sortColumn="pimId", $sortOrder="asc"){
+            if(!in_array($sortColumn,["pimId", "title", "price", "stockLevel", "categoryName"])){
+                $sortColumn = "pimId";
             } 
             if(!in_array($sortOrder,["asc", "desc"])){
                 $sortOrder = "asc";

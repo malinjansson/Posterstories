@@ -7,7 +7,7 @@ require_once("Models/Database.php");
 
     $id = $_GET['id'];
     $dbConnection = new Database();
-    $product = $dbConnection->getProduct($id);
+    $product = $dbConnection->getProduct($pimId);
 
     if($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $product->title = $_POST['title'];
