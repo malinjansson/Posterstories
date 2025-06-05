@@ -73,8 +73,8 @@ $sortOrder = $_GET['sortOrder'] ?? "";
                         <td><?php echo $prod->price; ?></td>
                         <td><?php echo $prod->stockLevel; ?></td>
                         <td>
-                            <a href="/admin/edit?id=<?php echo $prod->id; ?>" class="btn btn-primary">Edit</a>
-                            <a href="admin/delete?id=<?php echo $prod->id; ?>" class="btn btn-dark">Delete</a>
+                            <a href="/admin/edit?id=<?php echo $prod->pimId; ?>" class="btn btn-primary">Edit</a>
+                            <a href="admin/delete?id=<?php echo $prod->pimId; ?>" class="btn btn-dark">Delete</a>
                         </td>
                         
                     </tr>
