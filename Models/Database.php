@@ -95,11 +95,11 @@ require_once('Models/CartItem.php');
         }
         
          function updateProduct($product){
-             $p = "UPDATE Products SET title = :title, teaser = :teaser, price = :price, img = :img, stockLevel = :stockLevel, categoryName = :categoryName, popularity = :popularity WHERE pimId = :id";
+             $p = "UPDATE Products SET title = :title, description = :description, price = :price, img = :img, stockLevel = :stockLevel, categoryName = :categoryName, popularity = :popularity WHERE pimId = :id";
              $query = $this->pdo->prepare($p);
              $query->execute([
                  'title' => $product->title, 
-                 'teaser' => $product->teaser,
+                 'description' => $product->description,
                  'price' => $product->price,
                  'img' => $product->img,
                  'stockLevel' => $product->stockLevel,

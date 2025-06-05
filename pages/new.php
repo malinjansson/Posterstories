@@ -9,14 +9,14 @@ require_once("Models/Database.php");
 
     if($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $title = $_POST['title'];
-        $teaser = $_POST['teaser'];
+        $description = $_POST['description'];
         $price = $_POST['price'];
         $product->img = $_POST ['img'];
         $stockLevel = $_POST['stockLevel'];
         $categoryName = $_POST['categoryName'];
         $popularity = $_POST['popularity'];
         $active = $_POST['active'];
-        $dbConnection->insertProduct($title, $teaser, $price, $img, $stockLevel, $categoryName, $popularity, $active);
+        $dbConnection->insertProduct($title, $description, $price, $img, $stockLevel, $categoryName, $popularity, $active);
         header("Location: /admin");
         exit;
     } else{
@@ -45,7 +45,7 @@ require_once("Models/Database.php");
                     <input type="text" class="form-control" name="title" value="">
                 </div>
                 <div class="form-group">
-                    <lable for="title">Teaser</lable>
+                    <lable for="title">Description</lable>
                     <input type="text" class="form-control" name="teaser" value="">
                 </div>
                 <div class="form-group">

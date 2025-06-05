@@ -11,7 +11,7 @@ require_once("Models/Database.php");
 
     if($_SERVER ['REQUEST_METHOD'] == 'POST') {
         $product->title = $_POST['title'];
-        $product->teaser = $_POST['teaser'];
+        $product->description = $_POST['description'];
         $product->price = $_POST['price'];
         $product->img = $_POST ['img'];
         $product->stockLevel = $_POST['stockLevel'];
@@ -44,7 +44,7 @@ require_once("Models/Database.php");
                     <input type="text" class="form-control" name="title" value="<?php echo $product->title?>">
                 </div>
                 <div class="form-group">
-                    <lable for="title">Teaser</lable>
+                    <lable for="title">Description</lable>
                     <input type="text" class="form-control" name="teaser" value="<?php echo $product->description?>">
                 </div>
                 <div class="form-group">
