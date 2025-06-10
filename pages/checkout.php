@@ -37,8 +37,8 @@ foreach($cart->getItems() as $cartitem ){
 
 $checkout_session = \Stripe\Checkout\Session::create([
     "mode" => "payment",
-    "success_url" => "http://localhost:8000/checkoutsuccess",
-    "cancel_url" => "http://localhost:8000",
+    "success_url" => $_ENV['SUCCESS_URL'],
+    "cancel_url" => $_ENV['CANCEL_URL'],
     "locale" => "auto",
     "line_items" => $lineitems
 ]);
