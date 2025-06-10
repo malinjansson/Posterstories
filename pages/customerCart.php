@@ -57,13 +57,18 @@ $cart = new Cart($dbConnection, $session_id, $userId);
                         <td><?php echo $cartItem->quantity; ?></td>
                         <td><?php echo $cartItem->rowPrice; ?></td>
                         <td>
-                            <a href="deleteFromCart?id=<?php echo $cartItem->id; ?>" class="btn btn-danger">Delete</a>
+                            <a href="/addToCart?productId=<?php echo $cartItem->productId ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" class="btn btn-primary">+</a>                                            
+                            <a href="/deleteFromCart?productId=<?php echo $cartItem->productId ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" class="btn btn-dark">-</a>                                            
+                            <a href="/deleteFromCart?removeCount=<?php echo $cartItem->quantity ?>&productId=<?php echo $cartItem->productId ?>&fromPage=<?php echo urlencode((empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]") ?>" class="btn">DELETE ALL</a>  
                         </td>
                     </tr>
                 <?php } ?>
                     <tr>
                         <td colspan="3">Total</td>
                         <td><?php echo $cart->getTotalPrice(); ?></td>
+                        <td>
+                            <a href="/checkout" onclick="onCheckout()" class="btn btn-primary">Checkout</a>
+                        </td>
                         <td></td>
                     </tr>
                 </tbody>
