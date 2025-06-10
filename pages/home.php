@@ -22,22 +22,16 @@ $dbConnection = new Database();
         <?php HeadLinks()?>
     </head>
     <body>
-        <!-- Navigation-->
         <?php HeaderNav()?>
-        <!-- Header-->
         <?php TopBanner()?>
-        <!-- Section-->
         <section class="py-5">
             <div class="text-center">
                 <h2 class="top-heading">Bestsellers</h2>
             </div>
         </section>
         <?php ProductCards()?>
-        <!-- Footer-->
         <?php Footer()?>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>

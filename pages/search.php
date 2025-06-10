@@ -30,9 +30,7 @@ if($q == ""){
         <?php HeadLinks()?>
     </head>
     <body>
-        <!-- Navigation-->
         <?php HeaderNav()?>
-        <!-- Section-->
         <section class="py-5">
         <div class="text-center">
                 <h2 class="top-heading"><?php echo $header ;?></h2>
@@ -48,20 +46,15 @@ if($q == ""){
                  ?>                     
                    <div class="col mb-5 mt-5">
                             <div class="card h-100">
-                                <!-- Product image-->
                                 <img class="card-img-top" src="<?php echo $prod->img; ?>" alt="..." />
-                                <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
-                                        <!-- Product name-->
                                         <h5 class="fw-bolder"><?php echo $prod->title;?></h5>
                                     </div>
                                     <div class="text-center">
-                                        <!-- Product price-->
                                         <?php echo $prod->price?> kr
                                     </div>
                                 </div>
-                                <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                      <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/product?id=<?php echo $prod->pimId; ?>">Shop now</a></div>
                                 </div>
@@ -71,11 +64,8 @@ if($q == ""){
                  </div>
              </div> 
          </section>
-        <!-- Footer-->
         <?php Footer()?>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>

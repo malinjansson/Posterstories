@@ -32,18 +32,14 @@ $cart = new Cart($dbConnection, $session_id, $userId);
         <?php HeadLinks()?>
     </head>
     <body>
-        <!-- Navigation-->
         <?php HeaderNav()?>
-        <!-- Section-->
         <section class="py-1">
             <div class="container my-5">
                 <div class="row">
-                    <!-- Produktbild -->
                     <div class="col-md-6">
                     <img src="<?php echo $product->img?>" class="img-fluid rounded" alt="Produktbild">
                     </div>
 
-                    <!-- Produktinfo -->
                     <div class="col-md-6 mt-4">
                     <h2 class="top-heading"><?php echo $product->title?></h2>
                     <h3 class="text-black"><?php echo $product->price?> kr</h3>
@@ -77,11 +73,8 @@ $cart = new Cart($dbConnection, $session_id, $userId);
                 </div>
             </div>
         </section>
-        <!-- Footer-->
         <?php Footer()?>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>

@@ -26,15 +26,10 @@ $header = $catName;
         <?php HeadLinks()?>
     </head>
     <body>
-        <!-- Navigation-->
         <?php HeaderNav()?>
-        <!-- Section-->
         <?php CategoryProductCards($catName)?>
-        <!-- Footer-->
         <?php Footer()?>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>

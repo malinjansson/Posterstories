@@ -29,24 +29,18 @@
          <?php HeadLinks()?>
      </head>
  <body>
-    <!-- Navigation-->
     <?php HeaderNav()?>
-    <!-- Section-->
      <section class="py-5">
      <div class="container px-4 px-lg-5 mt-5">
  
      <h1><?php echo $product->title; ?></h1>
-     <h2>Är du säker att du vill ta bort?</h2>
-     <a href="/admin/delete?id=<?php echo $id; ?>&confirmed=true" class="btn btn-danger">Ja</a>                                 
-     <a href="/admin" class="btn btn-primary">Nej</a>                                 
+     <h2>Are you sure you want to remove this product?</h2>
+     <a href="/admin/delete?id=<?php echo $id; ?>&confirmed=true" class="btn btn-danger">Yes</a>                                 
+     <a href="/admin" class="btn btn-primary">No</a>                                 
      </div>
     </section>
-     <!-- Footer-->
     <?php Footer(); ?>
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
- 
  </body>
  </html>

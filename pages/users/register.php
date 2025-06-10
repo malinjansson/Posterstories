@@ -43,9 +43,7 @@
          <?php HeadLinks()?>
      </head>
  <body>
-    <!-- Navigation-->
     <?php HeaderNav()?>
-     <!-- Section-->
      <section class="py-5">
      <div class="container px-4 px-lg-5 mt-1">
      <h1 class="mb-5">Register</h1>
@@ -72,10 +70,7 @@
  </div>
  </section>
  <?php Footer(); ?>
- <!-- Bootstrap core JS-->
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-         <!-- Core theme JS-->
          <script src="js/scripts.js"></script>
- 
  </body>
  </html>

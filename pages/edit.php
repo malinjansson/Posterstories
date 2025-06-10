@@ -33,9 +33,7 @@ require_once("Models/Database.php");
     <?php HeadLinks()?>
 </head>
 <body>
-    <!-- Navigation-->
     <?php HeaderNav()?>
-     <!-- Section-->
      <section class="py-5">
         <div class="container px-4 px-lg-5 mt-1">
             <form method="POST">
@@ -71,11 +69,8 @@ require_once("Models/Database.php");
             </form>
         </div>
     </section>
-    <!-- Footer-->
     <?php Footer()?>
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
 </html>
