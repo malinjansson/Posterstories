@@ -54,6 +54,18 @@ $router->addRoute('/search', function () {
 $router->addRoute('/addToCart', function () {
     require_once( __DIR__ .'/pages/addToCart.php');
 });
+$router->addRoute('/deleteFromCart', function () { 
+    require_once( __DIR__ .'/pages/deleteFromCart.php');
+});
+
+$router->addRoute('/checkout', function () {
+    require_once( __DIR__ .'/pages/checkout.php');
+});
+
+$router->addRoute('/checkoutsuccess', function () {  
+    require_once( __DIR__ .'/pages/checkoutSuccess.php');
+});
+
 $router->dispatch();
 
 function exception_handler(Throwable $exception) {
